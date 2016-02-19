@@ -35,8 +35,10 @@ if (installedVersion === version && fs.existsSync(path.join(__dirname, paths[pla
   process.exit(0)
 }
 
+var china_Mirror='https://npm.taobao.org/mirrors/electron/';
+
 // downloads if not cached
-download({version: version, arch: process.env.npm_config_arch, strictSSL: process.env.npm_config_strict_ssl}, extractFile)
+download({mirror:china_Mirror,version: version, arch: process.env.npm_config_arch, strictSSL: process.env.npm_config_strict_ssl}, extractFile)
 
 // unzips and makes path.txt point at the correct executable
 function extractFile (err, zipPath) {
